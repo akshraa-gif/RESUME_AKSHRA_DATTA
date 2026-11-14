@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Akshra Datta — BBA Digital Business and Entrepreneurship student at IIM Bangalore.">
+  <title>Akshra Datta | Resume</title>
+  <style>
+    :root {
+      --navy: #171d36;
+      --ink: #242943;
+      --muted: #687087;
+      --cream: #fffaf0;
+      --orange: #f4774b;
+      --yellow: #f6c85f;
+      --pink: #f4a8a5;
+      --blue: #a9c6ee;
+      --line: #e9e2d6;
+      --white: #ffffff;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 85px; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--cream);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 15px;
+      line-height: 1.7;
+    }
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(1120px, calc(100% - 48px)); margin: auto; }
+
+    /* A bold navigation bar, intentionally different from a traditional resume header */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: var(--navy);
+      color: var(--yellow);
+    }
+    .nav {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .brand {
+      font-size: 15px;
+      font-weight: 900;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+    .brand span { color: var(--yellow); }
+    .nav-links {
+      display: flex;
+      gap: 27px;
+      align-items: center;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .nav-links a {
+      color: #e6e8f0;
+      font-size: 11px;
+      font-weight: bold;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: color .2s ease;
+    }
+    .nav-links a:hover { color: var(--yellow); }
+    .menu-check { position: absolute; opacity: 0; pointer-events: none; }
+    .menu-label { display: none; cursor: pointer; color: var(--yellow); font-size: 12px; font-weight: bold; }
+
+    /* Oversized split hero */
+    .hero {
+      overflow: hidden;
+      position: relative;
+      padding: 74px 0 78px;
+      background: var(--navy);
+      color: var(--white);
+    }
+    .hero::after {
+      position: absolute;
+      right: -130px;
+      bottom: -280px;
+      width: 560px;
+      height: 560px;
+      content: "";
+      border: 1px solid rgba(255,255,255,.14);
+      border-radius: 50%;
+      box-shadow: 0 0 0 45px rgba(255,255,255,.025), 0 0 0 90px rgba(255,255,255,.02);
+    }
+    .hero-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 60px;
+      align-items: center;
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 23px;
+      color: var(--yellow);
+      font-size: 11px;
+      font-weight: bold;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+    .eyebrow::before { width: 28px; height: 2px; content: ""; background: var(--orange); }
+    h1 {
+      max-width: 650px;
+      margin: 0;
+      font-size: clamp(62px, 9vw, 112px);
+      font-weight: 900;
+      letter-spacing: -7px;
+      line-height: .88;
+    }
+    h1 span { color: var(--orange); }
+    .hero-subtitle {
+      max-width: 480px;
+      margin: 28px 0 13px;
+      color: #f4d7cb;
+      font-size: 18px;
+      font-weight: bold;
+      line-height: 1.5;
+    }
+    .hero-copy { max-width: 480px; margin: 0; color: #c5cada; font-size: 13px; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+    .button {
+      display: inline-block;
+      padding: 12px 19px;
+      border: 1px solid var(--yellow);
+      background: var(--yellow);
+      color: var(--navy);
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: .7px;
+      text-transform: uppercase;
+      transition: transform .2s ease, background .2s ease;
+    }
+    .button:hover { transform: translateY(-3px); background: #ffda7b; }
+    .button-outline { background: transparent; color: var(--white); border-color: rgba(255,255,255,.4); }
+    .button-outline:hover { background: rgba(255,255,255,.1); }
+    .photo-stage { position: relative; width: min(100%, 370px); justify-self: center; }
+    .photo-shape {
+      position: absolute;
+      top: -22px;
+      right: -20px;
+      width: 115px;
+      height: 115px;
+      border-radius: 50%;
+      background: var(--orange);
+    }
+    .portrait {
+      position: relative;
+      z-index: 1;
+      height: 465px;
+      overflow: hidden;
+      border: 9px solid var(--white);
+      border-radius: 190px 190px 24px 24px;
+      background: var(--pink);
+      box-shadow: 18px 18px 0 var(--yellow);
+      transform: rotate(2deg);
+    }
+    .portrait img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 23%;
+      transform: rotate(-2deg) scale(1.04);
+    }
+    .photo-note {
+      position: absolute;
+      z-index: 2;
+      right: -35px;
+      bottom: 27px;
+      padding: 9px 15px;
+      background: var(--orange);
+      color: var(--white);
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transform: rotate(-4deg);
+    }
+
+    /* Quick facts strip */
+    .quick-facts {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      background: var(--yellow);
+    }
+    .fact {
+      padding: 22px 20px;
+      text-align: center;
+      border-right: 1px solid rgba(23,29,54,.15);
+    }
+    .fact:last-child { border-right: 0; }
+    .fact strong { display: block; color: var(--navy); font-size: 17px; font-weight: 900; }
+    .fact span { color: #5c4c2b; font-size: 10px; font-weight: bold; letter-spacing: 1px; text-transform: uppercase; }
+
+    /* Section system: large section numbers and card-based content */
+    .section { padding: 92px 0; }
+    .section-top {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 25px;
+      margin-bottom: 38px;
+    }
+    .section-number { color: var(--orange); font-size: 12px; font-weight: 900; letter-spacing: 2px; }
+    h2 {
+      margin: 7px 0 0;
+      color: var(--navy);
+      font-size: clamp(34px, 5vw, 54px);
+      font-weight: 900;
+      letter-spacing: -2px;
+      line-height: 1.05;
+    }
+    .section-side-note { max-width: 250px; margin: 0; color: var(--muted); font-size: 12px; text-align: right; }
+
+    .about-layout {
+      display: grid;
+      grid-template-columns: .75fr 1.25fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+    .about-stamp {
+      display: flex;
+      min-height: 270px;
+      padding: 30px;
+      flex-direction: column;
+      justify-content: space-between;
+      background: var(--orange);
+      color: var(--navy);
+    }
+    .about-stamp .big-mark { font-size: 76px; font-weight: 900; line-height: .9; }
+    .about-stamp p { max-width: 180px; margin: 0; font-size: 13px; font-weight: bold; }
+    .about-copy {
+      padding: 34px 38px;
+      background: var(--white);
+      border: 1px solid var(--line);
+    }
+    .about-copy p { margin: 0 0 15px; color: var(--muted); font-size: 14px; }
+    .tag-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 23px; }
+    .tag {
+      padding: 6px 12px;
+      background: #fce7df;
+      color: #8f402b;
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: .5px;
+      text-transform: uppercase;
+    }
+
+    .education { background: #f2eee4; }
+    .education-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .edu-card {
+      position: relative;
+      min-height: 170px;
+      padding: 25px 27px;
+      background: var(--white);
+      border-left: 5px solid var(--orange);
+      box-shadow: 0 8px 24px rgba(23,29,54,.04);
+      transition: transform .2s ease;
+    }
+    .edu-card:hover { transform: translateY(-5px); }
+    .edu-card:nth-child(2n) { border-left-color: #7b9fd2; }
+    .edu-year { color: var(--orange); font-size: 10px; font-weight: 900; letter-spacing: 1px; text-transform: uppercase; }
+    .edu-card h3 { margin: 10px 0 5px; color: var(--navy); font-size: 17px; line-height: 1.35; }
+    .edu-card p { margin: 0; color: var(--muted); font-size: 12px; }
+    .score { display: inline-block; margin-top: 12px; padding: 4px 9px; background: #fff2c9; color: #765619; font-size: 10px; font-weight: 900; }
+
+    .skills-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+    .skill-panel { padding: 29px; color: var(--navy); background: var(--blue); }
+    .skill-panel:nth-child(2) { background: var(--pink); }
+    .skill-panel h3 { margin: 0 0 19px; font-size: 22px; font-weight: 900; }
+    .skill-list { display: flex; flex-wrap: wrap; gap: 9px; }
+    .skill-list span { padding: 7px 11px; background: rgba(255,255,255,.7); font-size: 11px; font-weight: bold; }
+
+    .milestones { background: var(--navy); color: var(--white); }
+    .milestones h2 { color: var(--white); }
+    .milestone-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .milestone {
+      min-height: 210px;
+      padding: 27px;
+      border: 1px solid rgba(255,255,255,.2);
+      background: rgba(255,255,255,.04);
+    }
+    .milestone .index { color: var(--yellow); font-size: 13px; font-weight: 900; letter-spacing: 2px; }
+    .milestone h3 { margin: 23px 0 8px; color: var(--white); font-size: 20px; line-height: 1.3; }
+    .milestone p { margin: 0; color: #bfc5d5; font-size: 12px; }
+
+    .curiosity-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .interest-card {
+      min-height: 235px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background: var(--pink);
+      transition: transform .2s ease;
+    }
+    .interest-card:nth-child(2) { background: var(--yellow); }
+    .interest-card:nth-child(3) { background: var(--blue); }
+    .interest-card:hover { transform: translateY(-6px) rotate(-1deg); }
+    .interest-card .symbol { font-size: 36px; font-weight: 900; }
+    .interest-card h3 { max-width: 210px; margin: 15px 0 7px; color: var(--navy); font-size: 19px; line-height: 1.2; }
+    .interest-card p { margin: 0; color: #45465a; font-size: 12px; }
+
+    .next-step {
+      padding: 52px;
+      background: var(--orange);
+      color: var(--navy);
+    }
+    .next-step h2 { max-width: 680px; margin: 0 0 14px; color: var(--navy); }
+    .next-step p { max-width: 620px; margin: 0; color: #50352f; font-size: 14px; }
+
+    .contact {
+      padding: 76px 0;
+      background: var(--yellow);
+    }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
+    .contact h2 { max-width: 470px; font-size: clamp(40px, 5vw, 58px); }
+    .contact-intro { max-width: 410px; color: #5d4d2d; font-size: 13px; }
+    .contact-card { padding: 27px; background: var(--navy); color: var(--white); }
+    .contact-card p { margin: 0 0 14px; color: #c4cada; font-size: 10px; font-weight: bold; letter-spacing: 1.5px; text-transform: uppercase; }
+    .contact-card a, .contact-card span { display: block; margin: 9px 0; color: var(--white); font-size: 14px; overflow-wrap: anywhere; }
+    .contact-card a:hover { color: var(--yellow); text-decoration: underline; text-underline-offset: 4px; }
+
+    footer { padding: 23px 0; background: var(--navy); color: #aeb5c8; }
+    .footer-row { display: flex; justify-content: space-between; gap: 20px; font-size: 10px; }
+    .back-top { color: var(--yellow); font-weight: bold; }
+
+    @media (max-width: 760px) {
+      .container { width: min(100% - 34px, 560px); }
+      .nav { min-height: 66px; flex-wrap: wrap; }
+      .menu-label { display: block; padding: 8px 0 8px 12px; }
+      .nav-links { display: none; order: 3; width: 100%; padding: 3px 0 18px; flex-direction: column; align-items: flex-start; gap: 14px; }
+      .menu-check:checked ~ .nav-links { display: flex; }
+      .hero { padding: 58px 0 68px; }
+      .hero-grid { grid-template-columns: 1fr; gap: 50px; }
+      h1 { font-size: clamp(62px, 16vw, 90px); letter-spacing: -4px; }
+      .photo-stage { width: min(78%, 330px); }
+      .portrait { height: 390px; }
+      .photo-note { right: -24px; }
+      .section { padding: 66px 0; }
+      .section-top { display: block; }
+      .section-side-note { margin-top: 14px; text-align: left; }
+      .about-layout, .education-grid, .skills-layout, .milestone-grid, .contact-grid { grid-template-columns: 1fr; }
+      .about-stamp { min-height: 190px; }
+      .about-copy { padding: 27px; }
+      .curiosity-grid { grid-template-columns: 1fr; }
+      .interest-card { min-height: 175px; }
+      .next-step { padding: 32px 25px; }
+      .quick-facts { grid-template-columns: 1fr; }
+      .fact { border-right: 0; border-bottom: 1px solid rgba(23,29,54,.15); }
+      .fact:last-child { border-bottom: 0; }
+      .footer-row { flex-wrap: wrap; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="nav container" aria-label="Main navigation">
+      <a class="brand" href="#home">Resume<span>.</span></a>
+      <input class="menu-check" type="checkbox" id="menu-check">
+      <label class="menu-label" for="menu-check">MENU +</label>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#milestones">Milestones</a></li>
+        <li><a href="#interests">Interests</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div>
+          <p class="eyebrow">Business · Digital · Entrepreneurship</p>
+          <h1>Akshra<br><span>Datta.</span></h1>
+          <p class="hero-subtitle">BBA Digital Business &amp; Entrepreneurship · IIM Bangalore</p>
+          <p class="hero-copy">An aspiring business professional interested in management, corporate roles and entrepreneurial ecosystems. I enjoy spotting market gaps, shaping ideas and thinking about how sustainable solutions can grow.</p>
+          <div class="hero-actions">
+            <a class="button" href="#contact">Let's connect</a>
+            <a class="button button-outline" href="#about">Explore profile</a>
+          </div>
+        </div>
+        <div class="photo-stage">
+          <div class="photo-shape"></div>
+          <div class="portrait">
+            <img src="images\akshra-profile.jpeg" alt="Portrait of Akshra Datta">
+          </div>
+          <div class="photo-note">Lucknow, India</div>
+        </div>
+      </div>
+    </section>
+
+    <div class="quick-facts container" aria-label="Profile highlights">
+      <div class="fact"><strong>2026–2029</strong><span>BBA DBE · IIM Bangalore</span></div>
+      <div class="fact"><strong>91.4%</strong><span>Class XII · CBSE</span></div>
+      <div class="fact"><strong>93.6%</strong><span>Class X · CBSE</span></div>
+    </div>
+
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section-top">
+          <div><span class="section-number">01 / WHO I AM</span><h2>A little about me.</h2></div>
+          <p class="section-side-note">Curiosity first. Then ideas, action and learning.</p>
+        </div>
+        <div class="about-layout">
+          <div class="about-stamp">
+            <span class="big-mark">Vision.</span>
+            <p>Learning how ideas turn into businesses that make a difference.</p>
+          </div>
+          <div class="about-copy">
+            <p>I am pursuing a Bachelor of Business Administration in Digital Business and Entrepreneurship at IIM Bangalore (2026–2029), alongside my IPMAT preparation.</p>
+            <p>I enjoy understanding how businesses are built, breaking down complex problems and turning new ideas into structured, actionable plans. I am particularly interested in entrepreneurship, business strategy, consulting and brand building.</p>
+            <div class="tag-row">
+              <span class="tag">Reading &amp; literature</span>
+              <span class="tag">Management studies</span>
+              <span class="tag">Entrepreneurship</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section education" id="education">
+      <div class="container">
+        <div class="section-top">
+          <div><span class="section-number">02 / MY LEARNING</span><h2>Education.</h2></div>
+          <p class="section-side-note">The foundations behind my next chapter.</p>
+        </div>
+        <div class="education-grid">
+          <article class="edu-card">
+            <span class="edu-year">2026 — 2029 · Ongoing</span>
+            <h3>BBA — Digital Business &amp; Entrepreneurship</h3>
+            <p>Indian Institute of Management Bangalore</p>
+          </article>
+          <article class="edu-card">
+            <span class="edu-year">Ongoing</span>
+            <h3>IPMAT Preparation</h3>
+            <p>Preparing for the Integrated Programme in Management Aptitude Test.</p>
+          </article>
+          <article class="edu-card">
+            <span class="edu-year">Class XII · CBSE</span>
+            <h3>Lucknow Public School</h3>
+            <p>Senior Secondary</p>
+            <span class="score">91.4%</span>
+          </article>
+          <article class="edu-card">
+            <span class="edu-year">Class X · CBSE</span>
+            <h3>Lucknow Public School</h3>
+            <p>Secondary</p>
+            <span class="score">93.6%</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="skills">
+      <div class="container">
+        <div class="section-top">
+          <div><span class="section-number">03 / WHAT I BRING</span><h2>Skills &amp; strengths.</h2></div>
+          <p class="section-side-note">A mix of business understanding and people skills.</p>
+        </div>
+        <div class="skills-layout">
+          <div class="skill-panel">
+            <h3>Finance &amp; Business</h3>
+            <div class="skill-list">
+              <span>Business development</span><span>Business strategy</span><span>Financial literacy</span>
+            </div>
+          </div>
+          <div class="skill-panel">
+            <h3>Interpersonal</h3>
+            <div class="skill-list">
+              <span>Leadership</span><span>Team management</span><span>Teamwork</span><span>Communication</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section milestones" id="milestones">
+      <div class="container">
+        <div class="section-top">
+          <div><span class="section-number">04 / PROUD MOMENTS</span><h2>Milestones.</h2></div>
+          <p class="section-side-note" style="color:#bfc5d5">Experiences that taught me to participate, persist and improve.</p>
+        </div>
+        <div class="milestone-grid">
+          <article class="milestone">
+            <span class="index">01 — SPORTS</span>
+            <h3>CBSE Cluster V · Kho-Kho</h3>
+            <p>Participated in the cluster-level tournament held in Faizabad.</p>
+          </article>
+          <article class="milestone">
+            <span class="index">02 — ACADEMICS</span>
+            <h3>Class Topper Medal · SOF Olympiad</h3>
+            <p>Awarded the Class Topper Medal for the Class 12th SOF Olympiad.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="interests">
+      <div class="container">
+        <div class="section-top">
+          <div><span class="section-number">05 / WHAT CURIOSITY LEADS TO</span><h2>Things I explore.</h2></div>
+          <p class="section-side-note">Areas I like reading about and learning through experience.</p>
+        </div>
+        <div class="curiosity-grid">
+          <article class="interest-card">
+            <span class="symbol">₹</span>
+            <div><h3>Finance &amp; financial markets</h3><p>Learning how markets move and work.</p></div>
+          </article>
+          <article class="interest-card">
+            <span class="symbol">↗</span>
+            <div><h3>Business management &amp; strategy</h3><p>The decisions and frameworks that shape organisations.</p></div>
+          </article>
+          <article class="interest-card">
+            <span class="symbol">✳</span>
+            <div><h3>Marketing &amp; innovation</h3><p>Connecting with people and learning through experience.</p></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="next-steps">
+      <div class="container">
+        <div class="next-step">
+          <span class="section-number">06 / LOOKING AHEAD</span>
+          <h2>Good ideas grow when you work with good people.</h2>
+          <p>I am looking for practical experiences and meaningful connections that help me collaborate with like-minded, ambitious people and understand how businesses work.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="container contact-grid">
+        <div>
+          <span class="section-number">07 / SAY HELLO</span>
+          <h2>Let's make a connection.</h2>
+          <p class="contact-intro">Open to learning opportunities, projects and conversations. Feel free to reach out.</p>
+        </div>
+        <div class="contact-card">
+          <p>Contact details</p>
+          <a href="mailto:akshradatta@gmail.com">akshradatta@gmail.com</a>
+          <a href="tel:+919044420303">+91 90444 20303</a>
+          <a href="https://github.com/akshraa-gif/RESUME_AKSHRA_DATTA.git">GitHub</a>
+          <span>Lucknow, India</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-row">
+      <span>© 2026 Akshra Datta</span>
+      <span>Personal resume · Made by Akshra Datta</span>
+      <a class="back-top" href="#home">Back to top ↑</a>
+    </div>
+  </footer>
+</body>
+</html>
