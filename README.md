@@ -26,9 +26,9 @@ The website does not currently depend on any external frameworks or JavaScript l
 ## Project files
 
 ```text
-resume-website/
+RESUME_AKSHRA_DATTA/
 │
-├── main_website.html
+├── index.html
 ├── README.md
 │
 └── images/
@@ -49,9 +49,9 @@ You do not need to install any additional packages to view the website locally.
 
 I plan to upload the project to a GitHub repository and use GitHub Pages to make it available online.
 
-**GitHub repository:** To be added after the repository is created.
+**GitHub repository:** https://github.com/akshraa-gif/RESUME_AKSHRA_DATTA.git
 
-**Live website:** To be added after GitHub Pages is enabled.
+**Live website:** https://akshraa-gif.github.io/RESUME_AKSHRA_DATTA/
 
 ## A note
 
